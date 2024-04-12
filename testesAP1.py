@@ -19,21 +19,19 @@ def aventureiro_andar(aventureiro, direcao):
 
     Retorna True caso o aventureiro tenha andado, e False caso contrário.
     """
-    x, y = aventureiro
+    
     if direcao == 'W':  # Cima
-        y += 1
+        if aventureiro['posicao'][1] > 0:
+            aventureiro['posicao'][1] -= 1
+            return True
     elif direcao == 'A':  # Esquerda
-        x -= 1
+        aventureiro['posicao'][0] -= 1
     elif direcao == 'S':  # Baixo
         y -= 1
     elif direcao == 'D':  # Direita
         x += 1
-    else:
-        return False
-    if 0 <= x <= 9 and 0 <= y <= 9:
-        return aventureiro
-    else:
-        return False
+
+    return False
 
 
 def ver_atributos_aventureiro(aventureiro):
