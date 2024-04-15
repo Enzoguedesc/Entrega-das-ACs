@@ -1,4 +1,3 @@
-
 import random
 # Operações do aventureiro
 def aventureiro_andar(aventureiro, direcao):
@@ -19,7 +18,7 @@ def aventureiro_andar(aventureiro, direcao):
 
     Retorna True caso o aventureiro tenha andado, e False caso contrário.
     """
-    
+
     if direcao == 'W':  # Cima
         if aventureiro['posicao'][1] > 0:
             aventureiro['posicao'][1] -= 1
@@ -36,7 +35,6 @@ def aventureiro_andar(aventureiro, direcao):
         if aventureiro['posicao'][0] < 9:
             aventureiro['posicao'][0] += 1
             return True
-
     return False
 
 
@@ -151,17 +149,17 @@ def iniciar_combate(aventureiro, monstro):
 
     while True:
         monstro["vida"] -= aventureiro["forca"]
-        print(f"{aventureiro["nome"]} causa {aventureiro["forca"]} de dano. Vida do Monstro: {monstro["vida"]}")
+        print(f"{aventureiro["nome"]} causa {aventureiro["forca"]} de dano! Vida do Monstro: {monstro["vida"]}")
 
         if monstro["vida"] <= 0:
             print("Monstro foi derrotado!")
             return True
 
         aventureiro["vida"] -= monstro["forca"]
-        print(f"O Monstro causa {monstro["forca"]} de dano. Vida de {aventureiro["nome"]}: {aventureiro["vida"]}")
+        print(f"O Monstro causa {monstro["forca"]} de dano! Vida de {aventureiro["nome"]}: {aventureiro["vida"]}")
 
         if aventureiro["vida"] <= 0:
-            print("Você perdeu!")
+            print("Você Morreu!")
             return False
 
 # Operação principal do jogo
@@ -199,11 +197,11 @@ def gerar_tesouro():
     0 e 9. Porém, se a coordenada gerada for (0, 0), deve gerar uma nova
     coordenada, até atender ao requisito.
     """
-    while True:
-        x = random.randint(0, 9)
-        y = random.randint(0, 9)
-        if (x, y) != (0, 0):
-            return x, y
+    x, y = random.randint(0, 9), random.randint(0, 9)
+    while x == 0 and y == 0:
+        x, y = random.randint(0, 9), random.randint(0, 9)
+    return [x, y]
+
 
 def main():
     """
