@@ -25,11 +25,17 @@ def aventureiro_andar(aventureiro, direcao):
             aventureiro['posicao'][1] -= 1
             return True
     elif direcao == 'A':  # Esquerda
-        aventureiro['posicao'][0] -= 1
+        if aventureiro['posicao'][0] > 0:
+            aventureiro['posicao'][0] -= 1
+            return True
     elif direcao == 'S':  # Baixo
-        y -= 1
+        if aventureiro['posicao'][1] < 9:
+            aventureiro['posicao'][1] += 1
+            return True
     elif direcao == 'D':  # Direita
-        x += 1
+        if aventureiro['posicao'][0] < 9:
+            aventureiro['posicao'][0] += 1
+            return True
 
     return False
 
