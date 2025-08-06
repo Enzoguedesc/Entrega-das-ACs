@@ -1,4 +1,6 @@
-# Materia de Programacão Estruturada
+# Matéria de Programação Estruturada
+
 ## Entrega das ACs
+
 ### Linguagem: Python
 
